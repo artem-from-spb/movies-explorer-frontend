@@ -4,3 +4,6 @@ export const appLink = "https://artem-mesto.nomoredomains.icu/";
 
 export const yandexLink = "https://practicum.yandex.ru/";
 export const githubLink = "https://github.com/artem-from-spb";
+
+export const homePage = "https://artem-movies.nomoredomains.icu/";
+
