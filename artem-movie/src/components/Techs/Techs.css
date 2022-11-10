@@ -41,6 +41,7 @@
   flex-direction: row;
   margin: auto;
   max-width: 710px;
+  margin-bottom: 40px;
 }
 
 .techs__stack-element {
