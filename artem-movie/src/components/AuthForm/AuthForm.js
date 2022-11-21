@@ -1,14 +1,14 @@
 import React from "react";
 import logo from "../../images/logoAuth.svg";
-import { homePage } from "../../utils/constants";
 
 function AuthForm({
   title,
-  formName,
   btnText,
   children,
   onSubmit,
-  authManage,
+  authQuestion,
+  authLink,
+  authLinkText,
 }) {
   return (
     <div className="auth-page">
@@ -17,7 +17,6 @@ function AuthForm({
       <form
         className="auth-page__form"
         noValidate
-        name={formName}
         onSubmit={onSubmit}
       >
         {children}
@@ -31,9 +30,9 @@ function AuthForm({
         </button>
       </form>
       <p className="auth-page__login-text">
-        Уже зарегистрированы?{" "}
-        <a href={homePage} className="auth-page__link">
-          {authManage}
+        {authQuestion}
+        <a href={authLink} className="auth-page__link">
+          {authLinkText}
         </a>
       </p>
     </div>

@@ -16,3 +16,7 @@
 @import url(./components/Footer/Footer.css);
 
 @import url(./components/NotFoundPopup/NotFoundPopup.css);
+
+@import url(./components/AuthForm/AuthForm.css);
+
+@import url(./components/Register/Register.css);
