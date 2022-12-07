@@ -1,6 +1,7 @@
 import React from "react";
 import linkPic from "../../images/link-pic.svg";
 import { staticLink, adaptiveLink, appLink } from "../../utils/constants";
+import './Portfolio.css';
 
 function Portfolio() {
   return (

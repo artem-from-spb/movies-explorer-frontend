@@ -1,4 +1,5 @@
 import React from "react";
+import './NotFoundPopup.css';
 
 function NotFound() {
   return (

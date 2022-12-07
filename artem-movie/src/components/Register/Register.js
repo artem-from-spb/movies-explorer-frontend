@@ -1,5 +1,6 @@
 import React from "react";
 import AuthForm from "../AuthForm/AuthForm";
+import './Register.css'
 
 function Register() {
   function handleSubmit(e) {

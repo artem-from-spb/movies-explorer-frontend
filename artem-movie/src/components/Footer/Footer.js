@@ -1,5 +1,6 @@
 import React from "react";
-import { yandexLink, githubLink } from "../../utils/constants"
+import { yandexLink, githubLink } from "../../utils/constants";
+import './Footer.css';
 
 function Footer() {
   return (

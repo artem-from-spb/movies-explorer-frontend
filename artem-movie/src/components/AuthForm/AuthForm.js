@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../images/logoAuth.svg";
+import './AuthForm.css'
 
 function AuthForm({
   title,
