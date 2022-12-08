@@ -2,7 +2,7 @@
 
 Ссылки на проект:
 
-IP 84.252.129.58
+IP 158.160.49.34
 
 Frontend https://artem-movies.nomoredomains.icu/
 
