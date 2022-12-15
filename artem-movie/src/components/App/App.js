@@ -1,7 +1,8 @@
 import "./App.css";
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
 import Header from "../Header/Header";
-import Promo from "../Promo/Promo";
 import Main from "../Main/Main";
 import Footer from "../Footer/Footer";
 import NotFound from "../NotFoundPopup/NotFoundPopup";
@@ -9,27 +10,36 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import SearchForm from "../SearchForm/SearchForm";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import Movies from "../Movies/Movies";
 
 function App() {
   return (
     <div>
       <Header />
-      <SearchForm />
-      <MoviesCard
-        link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-        name="First Card"
-        time="1ч42м"
-      />
-      <Profile email="aaa@aa.ru" title="Artem" />
-      <Promo />
-      <main>
-        <Main />
-      </main>
+      <Switch>
+        <Route exact path="/">
+          <main>
+            <Main />
+          </main>
+        </Route>
+        <Route exact path="/movies">
+          <SearchForm />
+          <Movies />
+        </Route>
+        <Route exact path="/profile">
+          <Profile email="aaa@aa.ru" title="Artem" />
+        </Route>
+        <Route exact path="/not-found">
+          <NotFound />
+        </Route>
+        <Route exact path="/signup">
+          <Register />
+        </Route>
+        <Route exact path="/signin">
+          <Login />
+        </Route>
+      </Switch>
       <Footer />
-      <NotFound />
-      <Register />
-      <Login />
     </div>
   );
 }

@@ -1,26 +1,6 @@
 @import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
 
-/* @import url(./components/Page/Page.css);
-
-@import url(./components/Header/Header.css);
-
-@import url(./components/AboutProject/AboutProject.css);
-
-@import url(./components/Techs/Techs.css);
-
-@import url(./components/AboutMe/AboutMe.css);
-
-@import url(./components/Portfolio/Portfolio.css);
-
-@import url(./components/Footer/Footer.css);
-
-@import url(./components/NotFoundPopup/NotFoundPopup.css);
-
-@import url(./components/AuthForm/AuthForm.css);
-
-@import url(./components/Register/Register.css); */
-
 .page {
     background-color: #ffffff;
     max-width: 1280px;
