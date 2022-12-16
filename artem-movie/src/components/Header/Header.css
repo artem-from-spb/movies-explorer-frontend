@@ -124,3 +124,32 @@ visibility: hidden;
   color: #000000;
   margin: 0;
 }
+
+
+@media screen and (max-width: 868px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__register-link {
+    font-size: 10px;
+    line-height: 16px;
+    margin: 0 14px 0 0;
+  }
+  
+  .header__enter-link {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 7px 12px 7px;
+  }
+
+  .header__promo-links {
+    height: 26px;
+  }
+}

@@ -13,9 +13,9 @@ function Main() {
     <div className="main">
       <Promo />
       <AboutProject />
-      <Techs />
+      {/* <Techs />
       <AboutMe />
-      <Portfolio />
+      <Portfolio /> */}
     </div>
   );
 }

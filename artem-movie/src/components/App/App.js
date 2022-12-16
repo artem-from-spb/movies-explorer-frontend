@@ -9,7 +9,6 @@ import NotFound from "../NotFoundPopup/NotFoundPopup";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
-import SearchForm from "../SearchForm/SearchForm";
 import Movies from "../Movies/Movies";
 import Preloader from "../Preloader/Preloader";
 import SavedMovies from "../SavedMovies/SavedMovies";
@@ -24,8 +23,8 @@ function App() {
             <Main />
           </main>
         </Route>
-        <Route exact path="/movies">
-          <SearchForm />
+        {/* <Route exact path="/movies">
+
           <Movies />
         </Route>
         <Route exact path="/saved-movies">
@@ -34,7 +33,7 @@ function App() {
         <Route exact path="/profile">
           <Profile email="aaa@aa.ru" title="Artem" />
         </Route>
-        <Route exact path="/not-found">
+        <Route path="*">
           <NotFound />
         </Route>
         <Route exact path="/signup">
@@ -42,10 +41,10 @@ function App() {
         </Route>
         <Route exact path="/signin">
           <Login />
-        </Route>
+        </Route> */}
         
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
       {/* <Preloader /> */}
     </div>
   );

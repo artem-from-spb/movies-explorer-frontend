@@ -20,7 +20,7 @@ function AboutProject() {
       </div>
       <div className="about-project__shedule">
         <p className="about-project__weeks about-project__weeks_align-handle">1 неделя</p>
-        <p className="about-project__weeks about-project__weeks_color_grey about-project__weeks_align-handle">4 неделя</p>
+        <p className="about-project__weeks about-project__weeks_color_grey about-project__weeks_align-handle">4 недели</p>
         <p className="about-project__week-task about-project__weeks_align-handle">Back-end</p>
         <p className="about-project__week-task about-project__weeks_align-handle">Front-end</p>
       </div>
