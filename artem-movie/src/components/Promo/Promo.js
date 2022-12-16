@@ -14,13 +14,11 @@ function Promo(props) {
       <h1 className="promo__title">
         Учебный проект студента факультета Веб-разработки.
       </h1>
-      <Link to="/">
         <img
           src={landing_logo}
           className="promo__landing-logo"
           alt="Логотип Лендинга"
         />
-      </Link>
     </section>
   );
 }

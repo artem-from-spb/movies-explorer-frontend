@@ -15,13 +15,21 @@
   align-self: start;
 }
 
+.auth-page__logo-link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 38px;
+  height: 38px;
+  margin-right: auto;
+}
+
 .auth-page__title {
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
   line-height: 29px;
   margin: 40px auto 35px 0;
-
 }
 
 .auth-page__form {
@@ -43,7 +51,6 @@
   margin-top: 75px;
   margin-bottom: 2px;
   padding-bottom: 2px;
-
 }
 
 .auth-page__login-text {

@@ -19,10 +19,16 @@
   height: 69px;
   border-bottom: 1px solid #e8e8e8;
   margin: 0 0 20px 0;
+  transition: opacity 0.6s ease;
 }
 
 .portfolio__item:last-child {
   border-bottom: none;
+}
+
+.portfolio__item:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
 }
 
 .portfolio__link {

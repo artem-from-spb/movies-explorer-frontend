@@ -14,7 +14,7 @@ function Register() {
       btnText="Зарегистрироваться"
       onSubmit={handleSubmit}
       authQuestion="Уже зарегистрированы?"
-      authLink="/"
+      authLink="/signin"
       authLinkText="Войти"
     >
       <label className="register__label" for="name-input">Имя</label>

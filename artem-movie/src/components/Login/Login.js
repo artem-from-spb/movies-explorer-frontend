@@ -14,7 +14,7 @@ function Login() {
       btnText="Войти"
       onSubmit={handleSubmit}
       authQuestion="Ещё не зарегистрированы?"
-      authLink="/"
+      authLink="/signup"
       authLinkText="Регистрация"
     >
       <label className="register__label" for="email-input">E-mail</label>

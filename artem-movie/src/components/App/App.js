@@ -11,6 +11,8 @@ import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import SearchForm from "../SearchForm/SearchForm";
 import Movies from "../Movies/Movies";
+import Preloader from "../Preloader/Preloader";
+import SavedMovies from "../SavedMovies/SavedMovies";
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
           <SearchForm />
           <Movies />
         </Route>
+        <Route exact path="/saved-movies">
+          <SavedMovies />
+        </Route>
         <Route exact path="/profile">
           <Profile email="aaa@aa.ru" title="Artem" />
         </Route>
@@ -38,8 +43,10 @@ function App() {
         <Route exact path="/signin">
           <Login />
         </Route>
+        
       </Switch>
       <Footer />
+      {/* <Preloader /> */}
     </div>
   );
 }

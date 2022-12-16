@@ -1,6 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+import './AuthForm.css';
 import logo from "../../images/logoAuth.svg";
-import './AuthForm.css'
+
 
 function AuthForm({
   title,
@@ -13,7 +16,10 @@ function AuthForm({
 }) {
   return (
     <div className="auth-page">
-      <img src={logo} alt="Логотип проекта" className="auth-page__logo" />
+<Link to="/" className="auth-page__logo-link">
+<img src={logo} alt="Логотип проекта" className="auth-page__logo" />
+</Link>
+
       <h2 className="auth-page__title">{title}</h2>
       <form
         className="auth-page__form"
@@ -32,9 +38,9 @@ function AuthForm({
       </form>
       <p className="auth-page__login-text">
         {authQuestion}
-        <a href={authLink} className="auth-page__link">
+        <Link to={authLink} className="auth-page__link">
           {authLinkText}
-        </a>
+        </Link>
       </p>
     </div>
   );
