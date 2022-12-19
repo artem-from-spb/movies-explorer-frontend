@@ -21,13 +21,15 @@ function Footer() {
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
       <div className="footer__container">
-        <p className="footer__link">© 2022</p>
-        <a href={yandexLink} className="footer__link">
-          Яндекс.Практикум
-        </a>
-        <a href={githubLink} className="footer__link">
-          Github
-        </a>
+        <p className="footer__link" id="one">© 2022</p>
+        <div className="footer__links">
+          <a href={yandexLink} className="footer__link">
+            Яндекс.Практикум
+          </a>
+          <a href={githubLink} className="footer__link">
+            Github
+          </a>
+        </div>
       </div>
     </footer>
   );

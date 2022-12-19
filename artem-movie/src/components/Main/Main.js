@@ -11,11 +11,11 @@ import Portfolio from "../Portfolio/Portfolio";
 function Main() {
   return (
     <div className="main">
-      <Promo />
-      <AboutProject />
-      {/* <Techs />
+      {/* <Promo /> */}
+      {/* <AboutProject /> */}
+      <Techs />
       <AboutMe />
-      <Portfolio /> */}
+      <Portfolio />
     </div>
   );
 }

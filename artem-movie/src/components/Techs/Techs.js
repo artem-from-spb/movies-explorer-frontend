@@ -30,7 +30,7 @@ function Techs() {
             Express.js
         </div>
         <div className="techs__stack-element">
-            monhoDB
+            mongoDB
         </div>
       </div>
     </div>

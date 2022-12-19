@@ -1,5 +1,5 @@
 import React from "react";
-import ArtemPic from '../../images/Artem.jpg';
+import ArtemPic from '../../images/aboutme__me.jpg';
 import './AboutMe.css';
 
 function AboutMe() {
