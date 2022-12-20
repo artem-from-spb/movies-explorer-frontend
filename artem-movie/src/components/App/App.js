@@ -16,15 +16,14 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Switch>
         <Route exact path="/">
           <main>
             <Main />
           </main>
         </Route>
-        {/* <Route exact path="/movies">
-
+        <Route exact path="/movies">
           <Movies />
         </Route>
         <Route exact path="/saved-movies">
@@ -41,8 +40,7 @@ function App() {
         </Route>
         <Route exact path="/signin">
           <Login />
-        </Route> */}
-        
+        </Route>
       </Switch>
       <Footer />
       {/* <Preloader /> */}

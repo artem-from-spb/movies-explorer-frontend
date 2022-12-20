@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 74px 0 70px 0;
+  padding: 72px 0 70px 0;
 }
 
 .profile__title {
@@ -55,4 +55,34 @@
 
 .profile__button_color_red {
   color: #ee3465;
+}
+
+@media screen and (max-width: 770px) {
+  .profile__title {
+    margin: 163px 0 86px 0;
+  }
+
+  .profile__button_margin-top_big {
+    margin-top: 194px
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .profile__user-data {
+    width: 70vw;
+  }
+}
+
+@media screen and (max-width: 428px) {
+  .profile {
+    padding: 0 30px 70px 30px;
+  }
+
+  .profile__title {
+    margin: 69px 0 70px 0;
+  }
+
+  .profile__button_margin-top_big {
+    margin-top: 362px
+  }
 }

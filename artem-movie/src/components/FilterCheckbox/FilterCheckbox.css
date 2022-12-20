@@ -38,10 +38,10 @@
 .filter__label::after {
   content: "";
   position: absolute;
-  top: 1px;
-  right: -46px;
-  width: 16px;
-  height: 16px;
+  top: 0;
+  right: -49px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   background-color: #2be080;
   transition: right 0.3s ease-in-out, background-color 0.3s ease-in-out;
@@ -52,4 +52,14 @@
 .filter__checkbox:checked + .filter__label::after {
   right: -34px;
   background-color: #f5f5f5;
+}
+
+@media screen and (max-width: 420px) {
+  .filter {
+    width: 148px;
+  }
+
+  .filter__label {
+    font-size: 11px;
+  }
 }

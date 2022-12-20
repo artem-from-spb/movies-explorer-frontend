@@ -11,8 +11,8 @@ import Portfolio from "../Portfolio/Portfolio";
 function Main() {
   return (
     <div className="main">
-      {/* <Promo /> */}
-      {/* <AboutProject /> */}
+      <Promo />
+      <AboutProject />
       <Techs />
       <AboutMe />
       <Portfolio />

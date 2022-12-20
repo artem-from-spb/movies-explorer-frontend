@@ -113,6 +113,7 @@
   .about-me__my-foto {
     max-width: 292px;
     margin: 0 auto 40px;
+    max-height: 352px;
   }
 
   .about-me__github-link {

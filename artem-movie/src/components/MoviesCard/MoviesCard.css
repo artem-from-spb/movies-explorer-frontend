@@ -35,4 +35,25 @@
   position: absolute;
   bottom: 29px;
   right: 6px;
+  transition: opacity 0.6s ease;
+}
+
+.card__saved-image:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+@media screen and (max-width: 930px) {
+  .card__image {
+    max-height: 190px;
+    width: 339px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card__image {
+    max-height: 168px;
+    width: 300px;
+  }
 }

@@ -1,11 +1,14 @@
-import './SavedMovies.css';
+import "./SavedMovies.css";
 
 import React from "react";
 import MoviesCard from "../MoviesCard/MoviesCard";
+import SearchForm from "../SearchForm/SearchForm";
 
 function SavedMovies(props) {
   return (
-    <section className="movies">
+    <>
+      <SearchForm />
+      <section className="movies__container movies">
         <MoviesCard
           link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
           name="First Card"
@@ -21,8 +24,8 @@ function SavedMovies(props) {
           name="First Card"
           time="1ч42м"
         />
-
-    </section>
+      </section>
+    </>
   );
 }
 
