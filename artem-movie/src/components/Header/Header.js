@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../images/logo.png";
 import accountLogo from "../../images/header__account.svg";
+import openMenuIcon from "../../images/nav__open-icon.svg";
+
+import Navigation from "../Navigation/Navigation";
 
 function Header(props) {
   const { pathname } = useLocation();
+  const [showMenu, setShowMenu] = useState(false);
+
+  //constants
   const path =
     pathname !== "/movies" &&
     pathname !== "/saved-movies" &&
@@ -15,8 +21,23 @@ function Header(props) {
 
   const defaultPath = pathname === "/";
 
+  //не отображаем header на 404, регистрации, логине
   if (path) {
     return <></>;
+  }
+
+  //закрытие меню по клику на ссылку
+  function handleCloseMenu() {
+    setShowMenu(false);
+  }
+
+  //открытие меню по нажатию на иконку хедера
+  function handleOpenMenu() {
+    if (showMenu) {
+      setShowMenu(false);
+    } else {
+      setShowMenu(true);
+    }
   }
 
   return (
@@ -51,6 +72,16 @@ function Header(props) {
           </div>
         </Link>
       </div>
+      <img
+        src={openMenuIcon}
+        alt="Меню"
+        className="header__open-icon"
+        onClick={handleOpenMenu}
+      />
+      <div className={`header__navigation ${showMenu ? 'header__navigation_visible_true' : ''}`}>
+        <Navigation handleCloseMenu={handleCloseMenu} />
+      </div>
+
       <div
         className={`header__promo-links ${
           defaultPath ? "" : "header__promo-links_visible_false"

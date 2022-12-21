@@ -16,7 +16,7 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 function App() {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <Switch>
         <Route exact path="/">
           <main>
@@ -32,14 +32,14 @@ function App() {
         <Route exact path="/profile">
           <Profile email="aaa@aa.ru" title="Artem" />
         </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
         <Route exact path="/signup">
           <Register />
         </Route>
         <Route exact path="/signin">
           <Login />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
       <Footer />

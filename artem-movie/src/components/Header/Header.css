@@ -55,7 +55,7 @@
 }
 
 .header__promo-links_visible_false {
-visibility: hidden;
+  visibility: hidden;
 }
 
 .header__register-link {
@@ -107,6 +107,10 @@ visibility: hidden;
   right: 70px;
 }
 
+.header__account_position_static {
+  position: static;
+}
+
 .header__account_visible_false {
   display: none;
 }
@@ -125,6 +129,25 @@ visibility: hidden;
   margin: 0;
 }
 
+.header__open-icon {
+  width: 44px;
+  height: 44px;
+}
+
+.header__navigation {
+  display: none;
+}
+
+.header__navigation_visible_true {
+  display: block;
+  width: 520px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff; 
+  z-index: 1;
+}
 
 @media screen and (max-width: 868px) {
   .header {
@@ -142,7 +165,7 @@ visibility: hidden;
     line-height: 16px;
     margin: 0 14px 0 0;
   }
-  
+
   .header__enter-link {
     font-size: 10px;
     line-height: 16px;
