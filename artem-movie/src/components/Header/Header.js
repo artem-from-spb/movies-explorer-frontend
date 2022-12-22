@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 
 import "./Header.css";
 import logo from "../../images/logo.png";
 import accountLogo from "../../images/header__account.svg";
 import openMenuIcon from "../../images/nav__open-icon.svg";
 
-import Navigation from "../Navigation/Navigation";
+import NavTab from "../NavTab/NavTab";
 
 function Header(props) {
   const { pathname } = useLocation();
@@ -26,7 +26,7 @@ function Header(props) {
     return <></>;
   }
 
-  //закрытие меню по клику на ссылку
+  //закрытие меню по клику на ссылку/нажитию на крестик
   function handleCloseMenu() {
     setShowMenu(false);
   }
@@ -51,12 +51,12 @@ function Header(props) {
           defaultPath ? "header__links_visible_false" : ""
         }`}
       >
-        <Link to="/movies" className="header__link">
+        <NavLink to="/movies" className="header__link" activeClassName="header__link_active">
           Фильмы
-        </Link>
-        <Link to="/saved-movies" className="header__link">
+        </NavLink>
+        <NavLink to="/saved-movies" className="header__link" activeClassName="header__link_active">
           Сохранённые фильмы
-        </Link>
+        </NavLink>
         <Link to="/profile">
           <div
             className={`header__account ${
@@ -72,14 +72,22 @@ function Header(props) {
           </div>
         </Link>
       </div>
-      <img
-        src={openMenuIcon}
-        alt="Меню"
-        className="header__open-icon"
-        onClick={handleOpenMenu}
-      />
-      <div className={`header__navigation ${showMenu ? 'header__navigation_visible_true' : ''}`}>
-        <Navigation handleCloseMenu={handleCloseMenu} />
+      {defaultPath ? (
+        <></>
+      ) : (
+        <img
+          src={openMenuIcon}
+          alt="Меню"
+          className="header__open-icon"
+          onClick={handleOpenMenu}
+        />
+      )}
+      <div
+        className={`header__nav ${
+          showMenu ? "header__nav_visible_true" : ""
+        }`}
+      >
+        <NavTab handleCloseMenu={handleCloseMenu} />
       </div>
 
       <div

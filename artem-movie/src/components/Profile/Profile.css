@@ -50,7 +50,7 @@
 }
 
 .profile__button_margin-top_big {
-  margin-top: 204px
+  margin-top: 204px;
 }
 
 .profile__button_color_red {
@@ -63,11 +63,11 @@
   }
 
   .profile__button_margin-top_big {
-    margin-top: 194px
+    margin-top: 194px;
   }
 }
 
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 700px) {
   .profile__user-data {
     width: 70vw;
   }
@@ -75,7 +75,7 @@
 
 @media screen and (max-width: 428px) {
   .profile {
-    padding: 0 30px 70px 30px;
+    padding: 0 30px 24px 30px;
   }
 
   .profile__title {
@@ -83,6 +83,15 @@
   }
 
   .profile__button_margin-top_big {
-    margin-top: 362px
+    margin-top: 362px;
+  }
+
+  .profile__user-data {
+    width: 260px;
+  }
+
+  .profile__button {
+    font-size: 12px;
+    line-height: 15px;
   }
 }

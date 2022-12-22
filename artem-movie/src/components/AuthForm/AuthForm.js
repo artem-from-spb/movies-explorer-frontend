@@ -16,10 +16,10 @@ function AuthForm({
   const { pathname } = useLocation();
 
   function handleButtonMargin() {
-    if (pathname === '/signin') {
-      return "auth-page__submit-button auth-page__submit-button_margin_big"
+    if (pathname === "/signin") {
+      return "auth-page__submit-button auth-page__submit-button_margin_big";
     } else {
-      return "auth-page__submit-button"
+      return "auth-page__submit-button";
     }
   }
 

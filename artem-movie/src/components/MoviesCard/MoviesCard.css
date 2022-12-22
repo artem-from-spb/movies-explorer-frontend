@@ -49,6 +49,11 @@
     max-height: 190px;
     width: 339px;
   }
+
+  .card__saved-image {
+    bottom: 38px;
+    right: 12px;
+  }
 }
 
 @media screen and (max-width: 450px) {

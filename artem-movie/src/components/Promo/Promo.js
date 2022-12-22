@@ -1,8 +1,6 @@
 import "./Promo.css";
 import React from "react";
 
-import landing_logo from "../../images/promo__image.svg";
-
 function Promo(props) {
   return (
     <section className="promo">

@@ -1,5 +1,5 @@
 import React from "react";
-import './Techs.css';
+import "./Techs.css";
 
 function Techs() {
   return (
@@ -11,27 +11,13 @@ function Techs() {
         дипломном проекте.
       </p>
       <div className="techs__stack-list">
-        <div className="techs__stack-element">
-            HTML
-        </div>
-        <div className="techs__stack-element">
-            CSS
-        </div>
-        <div className="techs__stack-element">
-            JS
-        </div>
-        <div className="techs__stack-element">
-            React
-        </div>
-        <div className="techs__stack-element">
-            Git
-        </div>
-        <div className="techs__stack-element">
-            Express.js
-        </div>
-        <div className="techs__stack-element">
-            mongoDB
-        </div>
+        <div className="techs__stack-element">HTML</div>
+        <div className="techs__stack-element">CSS</div>
+        <div className="techs__stack-element">JS</div>
+        <div className="techs__stack-element">React</div>
+        <div className="techs__stack-element">Git</div>
+        <div className="techs__stack-element">Express.js</div>
+        <div className="techs__stack-element">mongoDB</div>
       </div>
     </div>
   );

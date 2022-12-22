@@ -1,5 +1,9 @@
 .movies {
-  padding: 70px;
+  padding: 70px 70px 62px 70px;
+}
+
+.movies_padding-bottom_big {
+  padding-bottom: 152px;
 }
 
 .movies__container {
@@ -53,11 +57,9 @@
   .movies__more-button {
     width: calc(100vw - 60px);
   }
-}
 
-@media screen and (max-width: 760px) {
-  .movies__container {
-    column-gap: 16px;
+  .movies_padding-bottom_big {
+    padding-bottom: 197px;
   }
 }
 
@@ -71,7 +73,7 @@
 
 @media screen and (max-width: 450px) {
   .movies {
-    padding: 40px 10px 106px 10px;
+    padding: 40px 10px 129px 10px;
   }
 
   .movies__container {
@@ -81,7 +83,11 @@
   }
 
   .movies__more-button {
-    width: calc(100vw - 20px);
+    width: 100%;
+    padding: 0;
   }
-  
+
+  .movies_padding-bottom_big {
+    padding-bottom: 219px;
+  }
 }

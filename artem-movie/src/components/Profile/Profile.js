@@ -13,8 +13,12 @@ function Profile({ title, email }) {
         <p className="profile__user-text">E-mail</p>
         <p className="profile__user-text">{email}</p>
       </div>
-      <button className="profile__button profile__button_margin-top_big">Редактировать</button>
-      <button className="profile__button profile__button_color_red">Выйти из аккаунта</button>
+      <button className="profile__button profile__button_margin-top_big">
+        Редактировать
+      </button>
+      <button className="profile__button profile__button_color_red">
+        Выйти из аккаунта
+      </button>
     </section>
   );
 }

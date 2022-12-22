@@ -16,6 +16,7 @@
   max-width: 626px;
   max-height: 104px;
   margin: 0;
+  padding: 50px 0 0 0;
 }
 
 @media screen and (max-width: 868px) {
@@ -42,20 +43,19 @@
     min-height: 630px;
     background-position: bottom 50px center;
     padding: 0 10px 60px 10px;
-}
+  }
 }
 
 @media screen and (max-width: 468px) {
   .promo {
-      background-position: bottom 40px center;
-      min-height: 568px;
+    background-position: bottom 40px center;
+    min-height: 568px;
   }
   .promo__title {
-      font-size: 31px;
-      line-height: 39px;
-      padding: 183px 0 0 0;
-      min-width: 300px;
-      padding: 181px 0 0 0;
+    font-size: 31px;
+    line-height: 39px;
+    padding: 183px 0 0 0;
+    min-width: 300px;
+    padding: 181px 0 0 0;
   }
-
 }
