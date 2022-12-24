@@ -10,8 +10,11 @@ function SearchForm(props) {
           className="search__input"
           type="text"
           placeholder="Фильм"
+          required
         ></input>
-        <button className="search__button">Найти</button>
+        <button className="search__button" type="button">
+          Найти
+        </button>
       </form>
       <FilterCheckbox />
     </section>

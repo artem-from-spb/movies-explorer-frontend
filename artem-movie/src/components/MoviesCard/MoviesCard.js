@@ -1,31 +1,21 @@
 import "./MoviesCard.css";
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "react-router-dom";
 
-import cardSavedOff from "../../images/card__saved.svg";
-import cardSavedOn from "../../images/card__saved_true.svg";
-import deleteMovie from "../../images/moviecard__delete.svg";
-
 function MoviesCard(card) {
-  const [saved, setSaved] = useState(cardSavedOff);
   const { pathname } = useLocation();
 
   // переключатель избранное (зеленая метка)
-  function handleSaveStatusImage() {
-    if (saved === cardSavedOff) {
-      setSaved(cardSavedOn);
+  function handleSaveStatusImage(evt) {
+    if (!evt.target.classList.contains("card__button_type_like_active")) {
+      evt.target.classList.add("card__button_type_like_active");
     } else {
-      setSaved(cardSavedOff);
+      evt.target.classList.remove("card__button_type_like_active");
     }
   }
 
-  // переключатель лайка/крестика
-  function handleLikeOrClose() {
-    if (pathname === "/movies") {
-      return saved;
-    } else {
-      return deleteMovie;
-    }
+  function handleRemoveMovie() {
+    // удаление фильма из избранного
   }
 
   return (
@@ -33,12 +23,18 @@ function MoviesCard(card) {
       <img src={card.link} alt={card.name} className="card__image" />
       <h2 className="card__title">33 слова о дизайне</h2>
       <p className="card__time">{card.time}</p>
-      <img
-        src={handleLikeOrClose()}
-        alt="saved-label"
-        className="card__saved-image"
-        onClick={handleSaveStatusImage}
-      />
+
+      {pathname === "/saved-movies" ? (
+        <button
+          className="card__button card__button_type_remove"
+          onClick={handleRemoveMovie}
+        ></button>
+      ) : (
+        <button
+          className="card__button card__button_type_like"
+          onClick={handleSaveStatusImage}
+        ></button>
+      )}
     </section>
   );
 }

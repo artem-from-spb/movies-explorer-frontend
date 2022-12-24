@@ -8,23 +8,29 @@ function SavedMovies(props) {
   return (
     <>
       <SearchForm />
-      <section className="movies__container movies movies_padding-bottom_big">
-        <MoviesCard
-          link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-          name="First Card"
-          time="1ч42м"
-        />
-        <MoviesCard
-          link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-          name="First Card"
-          time="1ч42м"
-        />
-        <MoviesCard
-          link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-          name="First Card"
-          time="1ч42м"
-        />
-      </section>
+      <ul className="movies_padding_big">
+        <li>
+          <MoviesCard
+            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
+            name="First Card"
+            time="1ч42м"
+          />
+        </li>
+        <li>
+          <MoviesCard
+            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
+            name="First Card"
+            time="1ч42м"
+          />
+        </li>
+        <li>
+          <MoviesCard
+            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
+            name="First Card"
+            time="1ч42м"
+          />
+        </li>
+      </ul>
     </>
   );
 }

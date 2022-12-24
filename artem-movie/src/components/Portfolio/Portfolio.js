@@ -7,36 +7,54 @@ function Portfolio() {
   return (
     <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
-      <div className="portfolio__item">
-        <a href={staticLink} className="portfolio__link">
-          Статичный сайт
-        </a>
-        <img
-          src={linkPic}
-          alt="Ссылка на сайт"
-          className="portfolio__link-picture"
-        />
-      </div>
-      <div className="portfolio__item">
-        <a href={adaptiveLink} className="portfolio__link">
-          Адаптивный сайт
-        </a>
-        <img
-          src={linkPic}
-          alt="Ссылка на сайт"
-          className="portfolio__link-picture"
-        />
-      </div>
-      <div className="portfolio__item">
-        <a href={appLink} className="portfolio__link">
-          Одностраничное приложение
-        </a>
-        <img
-          src={linkPic}
-          alt="Ссылка на сайт"
-          className="portfolio__link-picture"
-        />
-      </div>
+      <ul className="portfolio__items">
+        <li className="portfolio__item">
+          <a
+            href={staticLink}
+            className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Статичный сайт
+            <img
+              src={linkPic}
+              alt="Ссылка на сайт"
+              className="portfolio__link-picture"
+            />
+          </a>
+        </li>
+
+        <li className="portfolio__item">
+          <a
+            href={adaptiveLink}
+            className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Адаптивный сайт
+            <img
+              src={linkPic}
+              alt="Ссылка на сайт"
+              className="portfolio__link-picture"
+            />
+          </a>
+        </li>
+        <li className="portfolio__item">
+          <a
+            href={appLink}
+            className="portfolio__link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Одностраничное приложение
+            <img
+              src={linkPic}
+              alt="Ссылка на сайт"
+              className="portfolio__link-picture"
+            />
+          </a>
+        </li>
+      </ul>
     </section>
   );
 }

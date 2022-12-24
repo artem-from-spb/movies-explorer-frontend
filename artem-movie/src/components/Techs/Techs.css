@@ -42,6 +42,8 @@
   margin: auto;
   max-width: 710px;
   margin-bottom: 40px;
+  padding: 0;
+  list-style: none;
 }
 
 .techs__stack-element {

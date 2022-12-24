@@ -1,9 +1,17 @@
 .movies {
-  padding: 70px 70px 62px 70px;
+  padding: 70px 70px 68px 70px;
 }
 
-.movies_padding-bottom_big {
-  padding-bottom: 152px;
+.movies_padding_big {
+  padding: 80px 70px 158px 70px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 270px);
+  column-gap: 20px;
+  row-gap: 32px;
+  max-width: 100%;
+  justify-content: center;
+  list-style: none;
 }
 
 .movies__container {
@@ -14,6 +22,8 @@
   margin: 9px auto 0 auto;
   max-width: 100%;
   justify-content: center;
+  padding: 0;
+  list-style: none;
 }
 
 .movies__more-button {

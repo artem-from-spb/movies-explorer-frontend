@@ -164,6 +164,7 @@
   right: 0;
   background: #fff;
   z-index: 1;
+  position: fixed;
 }
 
 @media screen and (max-width: 868px) {

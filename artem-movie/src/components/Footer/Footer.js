@@ -24,24 +24,28 @@ function Footer() {
         <p className="footer__link" id="one">
           © 2022
         </p>
-        <div className="footer__links">
-          <a
-            href={yandexLink}
-            className="footer__link"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Яндекс.Практикум
-          </a>
-          <a
-            href={githubLink}
-            className="footer__link"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Github
-          </a>
-        </div>
+        <ul className="footer__links">
+          <li className="footer__item">
+            <a
+              href={yandexLink}
+              className="footer__link footer__link_margin_middle"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Яндекс.Практикум
+            </a>
+          </li>
+          <li className="footer__item">
+            <a
+              href={githubLink}
+              className="footer__link"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Github
+            </a>
+          </li>
+        </ul>
       </div>
     </footer>
   );

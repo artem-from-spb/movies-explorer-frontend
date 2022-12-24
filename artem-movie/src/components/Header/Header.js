@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
 
 import "./Header.css";
-import logo from "../../images/logo.png";
+import logo from "../../images/logoAuth.svg";
 import accountLogo from "../../images/header__account.svg";
 import openMenuIcon from "../../images/nav__open-icon.svg";
 
@@ -46,7 +46,7 @@ function Header(props) {
         <img src={logo} className="header__logo" alt="Логотип проекта" />
       </Link>
 
-      <div
+      <nav
         className={`header__links ${
           defaultPath ? "header__links_visible_false" : ""
         }`}
@@ -71,7 +71,7 @@ function Header(props) {
             <p className="header__account-text">Аккаунт</p>
           </div>
         </Link>
-      </div>
+      </nav>
       {defaultPath ? (
         <></>
       ) : (

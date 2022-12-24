@@ -1,13 +1,13 @@
-import './NavTab.css';
+import "./NavTab.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
 
 import accountLogo from "../../images/header__account.svg";
 import closeIcon from "../../images/nav__closeIcon.svg";
 
-function NavTab ({ handleCloseMenu }) {
+function NavTab({ handleCloseMenu }) {
   return (
-    <div className="nav">
+    <section className="nav">
       <ul className="nav__links">
         <li className="nav__item">
           <NavLink
@@ -59,7 +59,7 @@ function NavTab ({ handleCloseMenu }) {
         className="nav__close-icon"
         onClick={handleCloseMenu}
       />
-    </div>
+    </section>
   );
 }
 
