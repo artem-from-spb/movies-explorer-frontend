@@ -1,0 +1,219 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  height: 74px;
+  justify-content: space-between;
+  padding: 0 70px;
+  align-items: center;
+  position: relative;
+}
+
+.header_color_blue {
+  background-color: #465dff;
+}
+
+.header__logo {
+  max-width: 38px;
+  max-height: 38px;
+  transition: opacity 0.6s ease;
+}
+
+.header__logo:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.header__links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-left: 14.3%;
+  padding-bottom: 4px;
+}
+
+.header__links_visible_false {
+  display: none;
+}
+
+.header__link {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  color: #000000;
+  margin: 0 16px 0 0;
+  text-decoration: none;
+}
+
+.header__link_active {
+  font-weight: 500;
+}
+
+.header__link:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.header__promo-links {
+  height: 32px;
+}
+
+.header__promo-links_visible_false {
+  visibility: hidden;
+}
+
+.header__register-link {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #ffffff;
+  margin: 0 30px 0 0;
+  text-decoration: none;
+  transition: opacity 0.6s ease;
+}
+
+.header__register-link:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.header__enter-link {
+  color: black;
+  background-color: #2be080;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 30px;
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+  padding: 8px 20px 9px;
+  transition: opacity 0.6s ease;
+}
+
+.header__enter-link:hover {
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+.header__account {
+  border: 2px solid rgba(170, 170, 170, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  height: 28px;
+  width: 96px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 20px;
+  right: 70px;
+}
+
+.header__account_position_static {
+  position: static;
+}
+
+.header__account_visible_false {
+  display: none;
+}
+
+.header__account-logo {
+  height: 14px;
+  width: 12px;
+  margin-right: 7px;
+}
+
+.header__account-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+  margin: 0;
+}
+
+.header__open-icon {
+  width: 44px;
+  height: 44px;
+  display: none;
+  position: absolute;
+  top: 14px;
+  right: 30px;
+  transition: opacity 0.6s ease;
+}
+
+.header__open-icon:hover {
+  opacity: 0.6;
+  transition: opacity 0.6s ease;
+  cursor: pointer;
+  background-color: #2be080;
+  border-radius: 50%;
+}
+
+.header__nav {
+  display: none;
+}
+
+.header__nav_visible_true {
+  display: block;
+  width: 520px;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #fff;
+  z-index: 1;
+  position: fixed;
+}
+
+@media screen and (max-width: 868px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header__open-icon {
+    display: block;
+  }
+
+  .header__links {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 521px) {
+  .header__nav_visible_true {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 468px) {
+  .header {
+    padding: 0 14px;
+  }
+
+  .header__register-link {
+    font-size: 10px;
+    line-height: 16px;
+    margin: 0 14px 0 0;
+  }
+
+  .header__enter-link {
+    font-size: 10px;
+    line-height: 16px;
+    padding: 7px 12px 7px;
+  }
+
+  .header__promo-links {
+    height: 26px;
+  }
+
+  .header__open-icon {
+    top: 16px;
+    right: 16px;
+    width: 37px;
+    height: 40px;
+  }
+}

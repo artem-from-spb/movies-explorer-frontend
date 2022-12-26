@@ -1,0 +1,130 @@
+.auth-page {
+  max-height: 768px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 396px;
+  margin: 70px auto;
+}
+
+.auth-page__logo {
+  width: 38px;
+  height: 38px;
+  margin: 0;
+  align-self: start;
+}
+
+.auth-page__logo-link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 38px;
+  height: 38px;
+  margin-right: auto;
+}
+
+.auth-page__title {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 40px auto 35px 0;
+}
+
+.auth-page__form {
+  width: 100%;
+}
+
+.auth-page__submit-button {
+  width: 100%;
+  height: 45px;
+  background: #ff6838;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  border: 0;
+  margin-top: 75px;
+  margin-bottom: 2px;
+  padding-bottom: 2px;
+}
+
+.auth-page__submit-button_margin_big {
+  margin-top: 163px;
+}
+
+.auth-page__login-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a0a0a0;
+}
+
+.auth-page__link {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ff6838;
+  margin-left: 7px;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 780px) {
+  .auth-page {
+    margin: 232px auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .auth-page {
+    margin: 132px 30px;
+    max-height: 880px;
+    width: calc(100% - 60px);
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .auth-page {
+    margin: 56px 30px 18px;
+  }
+
+  .auth-page__logo-link {
+    margin: 0 auto;
+  }
+
+  .auth-page__title {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 51px auto 75px;
+  }
+
+  .auth-page__submit-button {
+    margin-top: 163px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .auth-page__submit-button_margin_big {
+    margin-top: 250px;
+  }
+
+  .auth-page__login-text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .auth-page__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

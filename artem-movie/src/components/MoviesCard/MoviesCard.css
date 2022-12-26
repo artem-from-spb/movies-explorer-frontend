@@ -1,0 +1,92 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: fit-content;
+  background: #fdfdfd;
+  box-shadow: 0px 16px 24px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card__image {
+  max-height: 151px;
+  height: fit-content;
+  width: 270px;
+  margin: 0;
+}
+
+.card__title {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 14px 0 11px 12px;
+}
+
+.card__time {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+  margin: 0 0 14px 12px;
+}
+
+.card__button {
+  position: absolute;
+  bottom: 29px;
+  right: 6px;
+  transition: opacity 0.6s ease;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.card__button_type_remove {
+  background-image: url(../../images/moviecard__delete.svg);
+  width: 16px;
+  height: 16px;
+  bottom: 38px;
+  right: 12px;
+}
+
+.card__button_type_like {
+  background-image: url(../../images/card__saved.svg);
+  width: 30px;
+  height: 30px;
+  bottom: 29px;
+  right: 6px;
+}
+
+.card__button_type_like_active {
+  background-image: url(../../images/card__saved_true.svg);
+  width: 30px;
+  height: 30px;
+  bottom: 29px;
+  right: 6px;
+}
+
+.card__button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.6s ease;
+}
+
+@media screen and (max-width: 930px) {
+  .card__image {
+    max-height: 190px;
+    width: 339px;
+  }
+
+  .card__button {
+    bottom: 38px;
+    right: 12px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card__image {
+    max-height: 168px;
+    width: 300px;
+  }
+}
