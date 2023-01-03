@@ -8,13 +8,14 @@ function AuthForm({
   title,
   btnText,
   children,
-  onSubmit,
+  handleSubmit,
   authQuestion,
   authLink,
   authLinkText,
 }) {
   const { pathname } = useLocation();
 
+  // Задать большой отступ форме Войти
   function handleButtonMargin() {
     if (pathname === "/signin") {
       return "auth-page__submit-button auth-page__submit-button_margin_big";
@@ -30,7 +31,7 @@ function AuthForm({
       </Link>
 
       <h2 className="auth-page__title">{title}</h2>
-      <form className="auth-page__form" noValidate onSubmit={onSubmit}>
+      <form className="auth-page__form" noValidate onSubmit={handleSubmit}>
         {children}
 
         <button

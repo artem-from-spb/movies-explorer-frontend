@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import "./Login.css";
 
-function Login() {
+function Login({ onLogin }) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   function handleSubmit(e) {
     e.preventDefault();
-    alert("Hello, world!");
+    onLogin({ email, password });
+    setEmail("");
+    setPassword("");
+  }
+
+  function handleEmailChange(e) {
+    setEmail(e.target.value);
+  }
+
+  function handlePasswordChange(e) {
+    setPassword(e.target.value);
   }
 
   return (
     <AuthForm
       title="Рады видеть!"
       btnText="Войти"
-      onSubmit={handleSubmit}
+      handleSubmit={handleSubmit}
       authQuestion="Ещё не зарегистрированы?"
       authLink="/signup"
       authLinkText="Регистрация"
@@ -28,6 +41,7 @@ function Login() {
         minLength="5"
         maxLength="{200}"
         placeholder="Email"
+        onChange={handleEmailChange}
       />
       <label className="register__label" for="password-input">
         Пароль
@@ -40,6 +54,7 @@ function Login() {
         minLength="{2}"
         maxLength="{200}"
         placeholder="Пароль"
+        onChange={handlePasswordChange}
       />
     </AuthForm>
   );
