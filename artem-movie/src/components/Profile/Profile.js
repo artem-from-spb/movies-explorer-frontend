@@ -1,13 +1,13 @@
 import React from "react";
 import "./Profile.css";
 
-function Profile({ title, email }) {
+function Profile({ name, email }) {
   return (
     <section className="profile">
-      <h2 className="profile__title">Привет, {title}!</h2>
+      <h2 className="profile__title">Привет, {name}!</h2>
       <ul className="profile__user-data">
         <li className="profile__user-text">Имя</li>
-        <li className="profile__user-text">{title}</li>
+        <li className="profile__user-text">{name}</li>
       </ul>
       <ul className="profile__user-data">
         <li className="profile__user-text">E-mail</li>
