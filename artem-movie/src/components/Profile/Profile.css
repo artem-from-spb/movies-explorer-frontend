@@ -12,6 +12,11 @@
   margin: 0 0 113px 0;
 }
 
+.profile__form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 .profile__user-data {
   display: flex;
   flex-direction: row;
@@ -20,7 +25,6 @@
   height: 40px;
   margin: 0;
   padding: 0;
-  list-style: none;
 }
 
 .profile__user-data:first-of-type {
@@ -32,6 +36,14 @@
   font-weight: 500;
   font-size: 11px;
   line-height: 13px;
+}
+
+.profile__input {
+  border: none;
+  text-align: right;
+  /* outline: none; */
+  width: fit-content;
+  max-width: 100px;
 }
 
 .profile__button {

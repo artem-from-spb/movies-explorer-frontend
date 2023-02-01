@@ -2,6 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -11,13 +12,12 @@ import Register from "../Register/Register";
 import Login from "../Login/Login";
 import Profile from "../Profile/Profile";
 import Movies from "../Movies/Movies";
-import Preloader from "../Preloader/Preloader";
+// import Preloader from "../Preloader/Preloader";
 import SavedMovies from "../SavedMovies/SavedMovies";
 
 import { api } from "../../utils/MainApi";
 
 import * as Auth from "../../utils/Auth";
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
   const history = useHistory();
@@ -59,12 +59,12 @@ function App() {
           console.log(err);
         });
     }
-  }, [loggedIn, history]);
+  }, [loggedIn]);
 
   useEffect(() => {
     checkToken();
     console.log(loggedIn);
-  }, [history]);
+  });
 
   function handleRegister({ name, email, password }) {
     Auth.register(name, email, password)
@@ -82,9 +82,10 @@ function App() {
     Auth.authorize(email, password)
       .then((res) => {
         if (res.token) {
-          localStorage.setItem("jwt", res.token);
-          checkToken();
 
+          localStorage.setItem("jwt", res.token);
+          setLoggedIn(true);
+          checkToken();
           console.log(loggedIn);
 
           history.push("/movies");

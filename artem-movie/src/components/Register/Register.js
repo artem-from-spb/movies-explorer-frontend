@@ -105,7 +105,7 @@ function Register({ onSubmit }) {
         name="name"
         value={name}
         onChange={handleNameChange}
-        autocomplete="off"
+        autoComplete="off"
       />
       <p className="register__error">{nameError}</p>
       <label className="register__label" for="email-input">
@@ -123,7 +123,7 @@ function Register({ onSubmit }) {
         placeholder="Email"
         value={email}
         onChange={handleEmailChange}
-        autocomplete="off"
+        autoComplete="off"
       />
       <p className="register__error">{emailError}</p>
       <label className="register__label" for="password-input">
@@ -141,7 +141,7 @@ function Register({ onSubmit }) {
         placeholder="Пароль"
         value={password}
         onChange={handlePasswordChange}
-        autocomplete="off"
+        autoComplete="off"
       />
       <p className="register__error">{passwordError}</p>
     </AuthForm>
