@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AuthForm from "../AuthForm/AuthForm";
 import "./Login.css";
+
+import { regExpEmail } from "../../utils/constants";
+import { inputErrorEmail, inputErrorPassword } from "../../utils/constants";
 
 function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [inputIsValid, setInputIsValid] = useState(false);
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -14,12 +22,44 @@ function Login({ onLogin }) {
   }
 
   function handleEmailChange(e) {
-    setEmail(e.target.value);
+    let inputValue = e.target.value;
+    if (!regExpEmail.test(inputValue) && inputValue.length > 0) {
+      setEmailError(inputErrorEmail);
+    } else {
+      setEmailError("");
+    }
+    setEmail(inputValue);
   }
 
   function handlePasswordChange(e) {
-    setPassword(e.target.value);
+    let inputValue = e.target.value;
+    if (
+      (inputValue.length > 0) & (inputValue.length < 4) ||
+      inputValue.length > 20
+    ) {
+      setPasswordError(inputErrorPassword);
+    } else {
+      setPasswordError("");
+    }
+    setPassword(inputValue);
   }
+
+  function checkInputValidity() {
+    if (
+      !emailError &&
+      !passwordError &&
+      email &&
+      password
+    ) {
+      setInputIsValid(true);
+    } else {
+      setInputIsValid(false);
+    }
+  }
+
+  useEffect(() => {
+    checkInputValidity();
+  }, [email, password]);
 
   return (
     <AuthForm
@@ -29,6 +69,7 @@ function Login({ onLogin }) {
       authQuestion="Ещё не зарегистрированы?"
       authLink="/signup"
       authLinkText="Регистрация"
+      inputIsValid={inputIsValid}
     >
       <label className="register__label" for="email-input">
         E-mail
@@ -43,6 +84,7 @@ function Login({ onLogin }) {
         placeholder="Email"
         onChange={handleEmailChange}
       />
+      <p className="register__error">{emailError}</p>
       <label className="register__label" for="password-input">
         Пароль
       </label>
@@ -56,6 +98,7 @@ function Login({ onLogin }) {
         placeholder="Пароль"
         onChange={handlePasswordChange}
       />
+      <p className="register__error">{passwordError}</p>
     </AuthForm>
   );
 }

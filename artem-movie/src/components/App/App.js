@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import { Route, Switch, useHistory, Redirect } from "react-router-dom";
+import { Route, Switch, useHistory, useLocation } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 import Header from "../Header/Header";
@@ -20,8 +20,8 @@ import * as Auth from "../../utils/Auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
 function App() {
-  // ////
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
@@ -39,6 +39,7 @@ function App() {
             setLoggedIn(true);
             setEmail(res.email);
             setName(res.name);
+            console.log(loggedIn);
           }
         })
         .catch((err) => alert(err));
@@ -48,9 +49,11 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       api.updateToken();
-      api.getUserInfo()
+      api
+        .getUserInfo()
         .then((userData) => {
           setCurrentUser(userData);
+          console.log(loggedIn);
         })
         .catch((err) => {
           console.log(err);
@@ -60,14 +63,14 @@ function App() {
 
   useEffect(() => {
     checkToken();
+    console.log(loggedIn);
   }, [history]);
-
 
   function handleRegister({ name, email, password }) {
     Auth.register(name, email, password)
       .then(() => {
         console.log("Вы успешно зарегистрировались!");
-        handleLogin({ email, password })
+        history.push("/signin");
       })
       .catch((err) => {
         console.log(err);
@@ -81,14 +84,10 @@ function App() {
         if (res.token) {
           localStorage.setItem("jwt", res.token);
           checkToken();
-          console.log("LOGIN OK");
+
           console.log(loggedIn);
-          console.log(res.token);
+
           history.push("/movies");
-          setEmail(res.email);
-          setName(res.name);
-          console.log(email);
-          console.log(name);
         }
       })
       .catch((err) => {
@@ -99,12 +98,22 @@ function App() {
   function handleLogOut() {
     setLoggedIn(false);
     localStorage.removeItem("jwt");
+    history.push("/");
+    console.log(loggedIn);
   }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div>
-        <Header />
+        {pathname === "/" ||
+        pathname === "/movies" ||
+        pathname === "/saved-movies" ||
+        pathname === "/profile" ? (
+          <Header loggedIn={loggedIn} />
+        ) : (
+          <></>
+        )}
+
         <Switch>
           <Route exact path="/">
             <main>
@@ -114,11 +123,11 @@ function App() {
           <ProtectedRoute exact path="/movies" loggedIn={loggedIn}>
             <Movies />
           </ProtectedRoute>
-          <ProtectedRoute exact path="/saved-movies"  loggedIn={loggedIn}>
+          <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn}>
             <SavedMovies />
           </ProtectedRoute>
           <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>
-            <Profile email={email} name={name} />
+            <Profile email={email} name={name} handleLogOut={handleLogOut} />
           </ProtectedRoute>
           <Route exact path="/signup">
             <Register onSubmit={handleRegister} />
@@ -129,9 +138,6 @@ function App() {
           <Route path="*">
             <NotFound />
           </Route>
-          {/* <Route path="*">
-            {loggedIn ? <Redirect to="/movies" /> : <Redirect to="/signin" />}
-          </Route> */}
         </Switch>
         <Footer />
         {/* <Preloader /> */}

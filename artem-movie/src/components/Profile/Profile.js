@@ -1,7 +1,7 @@
 import React from "react";
 import "./Profile.css";
 
-function Profile({ name, email }) {
+function Profile({ name, email, handleLogOut }) {
   return (
     <section className="profile">
       <h2 className="profile__title">Привет, {name}!</h2>
@@ -16,7 +16,7 @@ function Profile({ name, email }) {
       <button className="profile__button profile__button_margin-top_big">
         Редактировать
       </button>
-      <button className="profile__button profile__button_color_red">
+      <button className="profile__button profile__button_color_red" onClick={handleLogOut}>
         Выйти из аккаунта
       </button>
     </section>

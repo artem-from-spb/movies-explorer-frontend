@@ -64,6 +64,10 @@
   margin-top: 163px;
 }
 
+.auth-page__submit-button_disabled {
+  background: gray;
+}
+
 .auth-page__login-text {
   font-style: normal;
   font-weight: 400;

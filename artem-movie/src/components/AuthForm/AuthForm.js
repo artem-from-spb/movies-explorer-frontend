@@ -12,17 +12,9 @@ function AuthForm({
   authQuestion,
   authLink,
   authLinkText,
+  inputIsValid,
 }) {
   const { pathname } = useLocation();
-
-  // Задать большой отступ форме Войти
-  function handleButtonMargin() {
-    if (pathname === "/signin") {
-      return "auth-page__submit-button auth-page__submit-button_margin_big";
-    } else {
-      return "auth-page__submit-button";
-    }
-  }
 
   return (
     <div className="auth-page">
@@ -35,9 +27,12 @@ function AuthForm({
         {children}
 
         <button
-          className={handleButtonMargin()}
+          className={`auth-page__submit-button ${
+            pathname === "/signin" ? "auth-page__submit-button_margin_big" : ""
+          } ${!inputIsValid ? 'auth-page__submit-button_disabled' : ''}`}
           type="submit"
           aria-label={btnText}
+          disabled={!inputIsValid}
         >
           {btnText}
         </button>
