@@ -3,11 +3,13 @@ import React from "react";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 
-function Movies(props) {
+
+
+function Movies({ movies }) {
   return (
     <>
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList movies={movies} />
     </>
   );
 }

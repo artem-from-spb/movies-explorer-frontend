@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import AuthForm from "../AuthForm/AuthForm";
-import { regExpEmail } from "../../utils/constants";
+import { regExpEmail, regExpName } from "../../utils/constants";
 import "./Register.css";
 
 import {
   inputErrorName,
+  inputErrorNameFormat,
   inputErrorEmail,
   inputErrorPassword,
 } from "../../utils/constants";
 
-function Register({ onSubmit }) {
+function Register({ onSubmit, authErrorCommon }) {
   const [inputIsValid, setInputIsValid] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -32,6 +33,8 @@ function Register({ onSubmit }) {
       inputValue.length > 30
     ) {
       setNameError(inputErrorName);
+    } else if (!regExpName.test(inputValue)) {
+      setNameError(inputErrorNameFormat);
     } else {
       setNameError("");
     }
@@ -89,8 +92,9 @@ function Register({ onSubmit }) {
       authLink="/signin"
       authLinkText="Войти"
       inputIsValid={inputIsValid}
+      authErrorCommon={authErrorCommon}
     >
-      <label className="register__label" for="name-input">
+      <label className="register__label" htmlFor="name-input">
         Имя
       </label>
       <input
@@ -108,7 +112,7 @@ function Register({ onSubmit }) {
         autoComplete="off"
       />
       <p className="register__error">{nameError}</p>
-      <label className="register__label" for="email-input">
+      <label className="register__label" htmlFor="email-input">
         E-mail
       </label>
       <input
@@ -126,7 +130,7 @@ function Register({ onSubmit }) {
         autoComplete="off"
       />
       <p className="register__error">{emailError}</p>
-      <label className="register__label" for="password-input">
+      <label className="register__label" htmlFor="password-input">
         Пароль
       </label>
       <input

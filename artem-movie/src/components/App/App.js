@@ -15,9 +15,12 @@ import Movies from "../Movies/Movies";
 // import Preloader from "../Preloader/Preloader";
 import SavedMovies from "../SavedMovies/SavedMovies";
 
+import { inputErrorConflict, inputErrorLogin } from "../../utils/constants";
+
 import { api } from "../../utils/MainApi";
 
 import * as Auth from "../../utils/Auth";
+import { getMovies } from '../../utils/MoviesApi';
 
 function App() {
   const history = useHistory();
@@ -25,10 +28,26 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
+  const [authError, setAuthError] = useState("");
 
   // значения для Профиля
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+
+  const [cards, setCards] = useState([]);
+
+  useEffect(() => {
+    if (loggedIn) {
+      getMovies()
+        .then((cardsData) => {
+          setCards(cardsData);
+          console.log(cards);
+        })
+        .catch((err) => {
+          console.log(`Ошибка ${err}`);
+        });
+    }
+  }, [loggedIn]);
 
   function checkToken() {
     const token = localStorage.getItem("jwt");
@@ -75,6 +94,7 @@ function App() {
       .catch((err) => {
         console.log(err);
         console.log("Что-то пошло не так! Попробуйте ещё раз.");
+        setAuthError(inputErrorConflict);
       });
   }
 
@@ -82,7 +102,6 @@ function App() {
     Auth.authorize(email, password)
       .then((res) => {
         if (res.token) {
-
           localStorage.setItem("jwt", res.token);
           setLoggedIn(true);
           checkToken();
@@ -93,6 +112,7 @@ function App() {
       })
       .catch((err) => {
         console.log(err);
+        setAuthError(inputErrorLogin);
       });
   }
 
@@ -101,6 +121,15 @@ function App() {
     localStorage.removeItem("jwt");
     history.push("/");
     console.log(loggedIn);
+  }
+
+  function handleUpdateUser(user) {
+    api
+      .editProfileData(user)
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => alert(err));
   }
 
   return (
@@ -122,19 +151,24 @@ function App() {
             </main>
           </Route>
           <ProtectedRoute exact path="/movies" loggedIn={loggedIn}>
-            <Movies />
+            <Movies movies={cards} />
           </ProtectedRoute>
           <ProtectedRoute exact path="/saved-movies" loggedIn={loggedIn}>
             <SavedMovies />
           </ProtectedRoute>
           <ProtectedRoute exact path="/profile" loggedIn={loggedIn}>
-            <Profile email={email} name={name} handleLogOut={handleLogOut} />
+            <Profile
+              email={email}
+              name={name}
+              handleLogOut={handleLogOut}
+              onUpdateUser={handleUpdateUser}
+            />
           </ProtectedRoute>
           <Route exact path="/signup">
-            <Register onSubmit={handleRegister} />
+            <Register onSubmit={handleRegister} authErrorCommon={authError} />
           </Route>
           <Route exact path="/signin">
-            <Login onLogin={handleLogin} />
+            <Login onLogin={handleLogin} authErrorCommon={authError} />
           </Route>
           <Route path="*">
             <NotFound />

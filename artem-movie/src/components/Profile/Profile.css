@@ -72,6 +72,10 @@
   color: #ee3465;
 }
 
+.profile__button_disabled {
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 770px) {
   .profile__title {
     margin: 163px 0 86px 0;

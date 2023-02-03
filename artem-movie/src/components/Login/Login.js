@@ -5,7 +5,7 @@ import "./Login.css";
 import { regExpEmail } from "../../utils/constants";
 import { inputErrorEmail, inputErrorPassword } from "../../utils/constants";
 
-function Login({ onLogin }) {
+function Login({ onLogin, authErrorCommon }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -17,8 +17,6 @@ function Login({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     onLogin({ email, password });
-    setEmail("");
-    setPassword("");
   }
 
   function handleEmailChange(e) {
@@ -45,12 +43,7 @@ function Login({ onLogin }) {
   }
 
   function checkInputValidity() {
-    if (
-      !emailError &&
-      !passwordError &&
-      email &&
-      password
-    ) {
+    if (!emailError && !passwordError && email && password) {
       setInputIsValid(true);
     } else {
       setInputIsValid(false);
@@ -70,8 +63,9 @@ function Login({ onLogin }) {
       authLink="/signup"
       authLinkText="Регистрация"
       inputIsValid={inputIsValid}
+      authErrorCommon={authErrorCommon}
     >
-      <label className="register__label" for="email-input">
+      <label className="register__label" htmlFor="email-input">
         E-mail
       </label>
       <input
@@ -85,7 +79,7 @@ function Login({ onLogin }) {
         onChange={handleEmailChange}
       />
       <p className="register__error">{emailError}</p>
-      <label className="register__label" for="password-input">
+      <label className="register__label" htmlFor="password-input">
         Пароль
       </label>
       <input

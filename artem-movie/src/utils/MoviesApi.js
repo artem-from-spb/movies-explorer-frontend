@@ -1,14 +1,19 @@
-export const BASE_URL = "http://localhost:3000";
 
-export function getAllMovies() {
-    return fetch(`${BASE_URL}/beatfilm-movies`, {
-        method: 'GET',
+const URL = 'https://api.nomoreparties.co/beatfilm-movies';
+const getResponseData = (res) => {
+    if (res.ok) {
+        return res.json();
+    } else {
+        return Promise.reject(`Ошибка: ${res.status}`);
+    }
+}
+
+export const getMovies = () => {
+    return fetch(URL, {
         headers: {
-            'Accept': 'application/json',
+            Accept: 'application/json',
             'Content-Type': 'application/json',
-        },
+        }
     })
-        .then(res => res.json())
-        .then(data => data)
-        .catch((err) => console.log(err));
+        .then(getResponseData);
 }

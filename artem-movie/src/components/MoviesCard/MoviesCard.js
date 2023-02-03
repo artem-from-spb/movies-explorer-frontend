@@ -2,7 +2,7 @@ import "./MoviesCard.css";
 import React from "react";
 import { useLocation } from "react-router-dom";
 
-function MoviesCard(card) {
+function MoviesCard({ card }) {
   const { pathname } = useLocation();
 
   // переключатель избранное (зеленая метка)
@@ -18,11 +18,21 @@ function MoviesCard(card) {
     // удаление фильма из избранного
   }
 
+  function changeDurationFormat(time) {
+    let minutes = time % 60;
+    let hours = (time-minutes)/60;
+    return `${hours}ч ${minutes}мин`;
+  }
+
   return (
     <section className="card">
-      <img src={card.link} alt={card.name} className="card__image" />
-      <h2 className="card__title">33 слова о дизайне</h2>
-      <p className="card__time">{card.time}</p>
+      <img
+        src={`https://api.nomoreparties.co/${card.image.url}`}
+        alt={card.nameRU}
+        className="card__image"
+      />
+      <h2 className="card__title">{card.nameRU}</h2>
+      <p className="card__time">{changeDurationFormat(card.duration)}</p>
 
       {pathname === "/saved-movies" ? (
         <button

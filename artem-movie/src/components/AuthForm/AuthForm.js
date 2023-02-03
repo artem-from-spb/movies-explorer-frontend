@@ -13,6 +13,7 @@ function AuthForm({
   authLink,
   authLinkText,
   inputIsValid,
+  authErrorCommon
 }) {
   const { pathname } = useLocation();
 
@@ -43,6 +44,7 @@ function AuthForm({
           {authLinkText}
         </Link>
       </p>
+      <p className="register__error">{authErrorCommon}</p>
     </div>
   );
 }
