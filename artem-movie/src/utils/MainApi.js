@@ -1,12 +1,9 @@
-// Пока без изменений из Место
-
 class MainApi {
   constructor(data) {
     this._url = data.url;
     this._headers = data.headers;
   }
 
-  // 0. repeat part
   _checkResponse(res) {
     if (res.ok) {
       return res.json();
@@ -15,38 +12,97 @@ class MainApi {
     return Promise.reject("Что-то пошло не так :(");
   }
 
-  // 1. Загрузка информации о пользователе с сервера
-  getUserInfo() {
-    return fetch(`${this._url}users/me`, {
-      method: "GET",
+  _fetch(link, method) {
+    return fetch(`${this._url}${link}`, {
+      method: method,
       headers: this._headers,
     }).then(this._checkResponse);
   }
 
-  // 2. Редактирование профиля
-  editProfileData(data) {
-    return fetch(`${this._url}users/me`, {
-      method: "PATCH",
+  _fetchBody(link, method, body) {
+    return fetch(`${this._url}${link}`, {
+      method: method,
       headers: this._headers,
-      body: JSON.stringify({
-        name: data.name,
-        email: data.email,
-      }),
+      body: JSON.stringify(body),
     }).then(this._checkResponse);
   }
 
-  updateToken() {
+  getAllFilms() {
     this._headers = {
-      Authorization: `Bearer ${localStorage.getItem("jwt")}`,
-      "Content-Type": "application/json",
+      ...this._headers,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     };
+    return this._fetch("/movies", "GET");
   }
+
+  addNewFilm(movie) {
+    return this._fetchBody("/movies", "POST", {
+      id: movie.id,
+      nameRU: movie.nameRU || "не указано",
+      nameEN: movie.nameEN || "не указано",
+      trailerLink: movie.trailerLink,
+      image: movie.image.url,
+      description: movie.description || "не указано",
+      year: movie.year,
+      duration: movie.duration,
+      director: movie.director || "не указано",
+      country: movie.country || "не указано",
+    });
+  }
+
+  removeMovie(movieId) {
+    return this._fetch(`/movies/${movieId}`, "DELETE");
+  }
+
+  getUserInfo() {
+    this._headers = {
+      ...this._headers,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
+    };
+    return this._fetch("/users/me", "GET");
+  }
+
+  editUserInfo(data) {
+    return this._fetchBody("/users/me", "PATCH", data);
+  }
+
+  // Регистрация
+  register({ name, email, password }) {
+    return this._fetchBody("/signup", "POST", {
+      name: name,
+      email: email,
+      password: password,
+    });
+  }
+
+  // Авторизация
+  authorize({ email, password }) {
+    return this._fetchBody("/signin", "POST", {
+      email: email,
+      password: password,
+    });
+  }
+
+  getContent = (jwt) => {
+    return fetch(`${this._url}/users/me`, {
+      method: "GET",
+      headers: {
+        Accept: "applications/json",
+        "Content-type": "applications/json",
+        Authorization: `Bearer ${jwt}`,
+      },
+    }).then(this._checkResponse);
+  };
 }
 
-export const api = new MainApi({
-  url: "http://localhost:3000/",
+// Создаем класс апи
+const mainApi = new MainApi({
+  //url: "https://api.artem-movies.nomoredomains.icu",
+  url: "http://localhost:3000",
   headers: {
-    authorization: `Bearer ${localStorage.getItem("jwt")}`,
     "content-type": "application/json",
+    authorization: `Bearer ${localStorage.getItem("jwt")}`,
   },
 });
+
+export default mainApi;

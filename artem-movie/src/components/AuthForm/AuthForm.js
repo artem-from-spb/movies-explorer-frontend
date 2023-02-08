@@ -44,7 +44,7 @@ function AuthForm({
           {authLinkText}
         </Link>
       </p>
-      <p className="register__error">{authErrorCommon}</p>
+      <div className="register__error">{authErrorCommon}</div>
     </div>
   );
 }

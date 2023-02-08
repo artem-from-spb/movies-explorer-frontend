@@ -1,36 +1,34 @@
 import "./SavedMovies.css";
 
-import React from "react";
-import MoviesCard from "../MoviesCard/MoviesCard";
+import React, { useEffect } from "react";
+import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import SearchForm from "../SearchForm/SearchForm";
+import Preloader from "../Preloader/Preloader";
 
-function SavedMovies(props) {
+function SavedMovies({
+  savedMovies,
+  filteredSavedMovies,
+  removeMovie,
+  searchSavedFilms,
+  isLoading,
+}) {
+  useEffect(() => {
+    searchSavedFilms("", false);
+  }, []);
+
   return (
     <>
-      <SearchForm />
-      <ul className="movies_padding_big">
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-      </ul>
+      <SearchForm searchFilms={searchSavedFilms} />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList
+          filteredMovies={filteredSavedMovies}
+          filteredCards={filteredSavedMovies}
+          removeMovie={removeMovie}
+          savedMovies={savedMovies}
+        />
+      )}
     </>
   );
 }

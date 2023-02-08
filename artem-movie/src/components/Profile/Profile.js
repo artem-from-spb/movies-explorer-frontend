@@ -2,9 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Profile.css";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { regExpEmail, regExpName } from "../../utils/constants";
-import { inputErrorName,inputErrorNameFormat, inputErrorEmail } from "../../utils/constants";
+import {
+  inputErrorName,
+  inputErrorNameFormat,
+  inputErrorEmail,
+} from "../../utils/constants";
 
-function Profile({ handleLogOut, onUpdateUser }) {
+function Profile({
+  handleLogOut,
+  onUpdateUser,
+  profileChangeOkMessage,
+  isLoading,
+}) {
   const [inputIsValid, setInputIsValid] = useState(false);
 
   const [email, setEmail] = useState("");
@@ -28,7 +37,7 @@ function Profile({ handleLogOut, onUpdateUser }) {
       setNameError(inputErrorName);
     } else if (!regExpName.test(inputValue)) {
       setNameError(inputErrorNameFormat);
-    }  else {
+    } else {
       setNameError("");
     }
     setName(inputValue);
@@ -94,11 +103,12 @@ function Profile({ handleLogOut, onUpdateUser }) {
         </div>
         <p className="register__error">{nameError}</p>
         <p className="register__error">{emailError}</p>
+        <p className="register__error">{profileChangeOkMessage}</p>
         <button
           className={`profile__button profile__button_margin-top_big ${
             !inputIsValid ? "profile__button_disabled" : ""
           }`}
-          disabled={!inputIsValid}
+          disabled={!inputIsValid || isLoading}
         >
           Редактировать
         </button>

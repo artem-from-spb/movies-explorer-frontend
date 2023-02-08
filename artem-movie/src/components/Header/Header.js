@@ -75,7 +75,6 @@ function Header({ loggedIn }) {
             <NavTab handleCloseMenu={handleCloseMenu} />
           </div>
           {/* /Меню */}
-
         </>
       ) : (
         <div className="header__promo-links">

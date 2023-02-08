@@ -46,6 +46,13 @@
   transition: opacity 0.6s ease;
 }
 
+.movies__nomovies {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #ee3465;
+}
+
 @media screen and (max-width: 1220px) {
   .movies__container {
     grid-template-columns: repeat(3, 270px);
