@@ -10,4 +10,4 @@ Backend https://api.artem-movies.nomoredomains.icu/
 
 Макет Figma https://disk.yandex.ru/d/YEY6dntWSzv5yg
 
-С Новым Годом!
+Pull request https://github.com/artem-from-spb/movies-explorer-frontend/pull/2
