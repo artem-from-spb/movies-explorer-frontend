@@ -8,20 +8,14 @@ function AuthForm({
   title,
   btnText,
   children,
-  onSubmit,
+  handleSubmit,
   authQuestion,
   authLink,
   authLinkText,
+  inputIsValid,
+  authErrorCommon
 }) {
   const { pathname } = useLocation();
-
-  function handleButtonMargin() {
-    if (pathname === "/signin") {
-      return "auth-page__submit-button auth-page__submit-button_margin_big";
-    } else {
-      return "auth-page__submit-button";
-    }
-  }
 
   return (
     <div className="auth-page">
@@ -30,13 +24,16 @@ function AuthForm({
       </Link>
 
       <h2 className="auth-page__title">{title}</h2>
-      <form className="auth-page__form" noValidate onSubmit={onSubmit}>
+      <form className="auth-page__form" noValidate onSubmit={handleSubmit}>
         {children}
 
         <button
-          className={handleButtonMargin()}
+          className={`auth-page__submit-button ${
+            pathname === "/signin" ? "auth-page__submit-button_margin_big" : ""
+          } ${!inputIsValid ? 'auth-page__submit-button_disabled' : ''}`}
           type="submit"
           aria-label={btnText}
+          disabled={!inputIsValid}
         >
           {btnText}
         </button>
@@ -47,6 +44,7 @@ function AuthForm({
           {authLinkText}
         </Link>
       </p>
+      <div className="register__error">{authErrorCommon}</div>
     </div>
   );
 }

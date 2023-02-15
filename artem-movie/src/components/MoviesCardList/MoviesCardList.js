@@ -1,127 +1,48 @@
 import "./MoviesCardList.css";
-
 import MoviesCard from "../MoviesCard/MoviesCard";
 
-function MoviesCardList() {
+function MoviesCardList({
+  handleMore,
+  isMoreMovies,
+  setLikeMovie,
+  filteredMovies,
+  removeMovie,
+  savedMovies,
+  filteredCards,
+  errorFind,
+}) {
   return (
     <section className="movies">
-      <ul className="movies__container">
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-        <li>
-          <MoviesCard
-            link="http://almode.ru/uploads/posts/2021-05/1622193827_3-p-yaponskii-sad-3.jpg"
-            name="First Card"
-            time="1ч42м"
-          />
-        </li>
-      </ul>
-      <button type="button" className="movies__more-button">
-        Ещё
-      </button>
+      {filteredMovies.length ? (
+        <>
+          <ul className="movies__container">
+            {filteredCards.map((movie, i) => {
+              return (
+                <MoviesCard
+                  key={movie.id}
+                  card={movie}
+                  removeMovie={removeMovie}
+                  savedMovies={savedMovies}
+                  setLikeMovie={setLikeMovie}
+                />
+              );
+            })}
+          </ul>
+          {isMoreMovies && (
+            <button
+              className="movies__more-button"
+              type="button"
+              onClick={handleMore}
+            >
+              Ещё
+            </button>
+          )}
+        </>
+      ) : (
+        <p className="movies__nomovies">
+          {errorFind ? errorFind : "Ничего не найдено"}
+        </p>
+      )}
     </section>
   );
 }
