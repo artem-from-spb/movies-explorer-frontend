@@ -97,8 +97,8 @@ class MainApi {
 
 // Создаем класс апи
 const mainApi = new MainApi({
-  //url: "https://api.artem-movies.nomoredomains.icu",
-  url: "http://localhost:3000",
+  url: "https://api.artem-movies.nomoredomains.icu",
+  //url: "http://localhost:3000",
   headers: {
     "content-type": "application/json",
     authorization: `Bearer ${localStorage.getItem("jwt")}`,
