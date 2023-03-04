@@ -52,3 +52,5 @@ Backend https://api.artem-movies.nomoredomains.icu/
 Макет Figma https://disk.yandex.ru/d/YEY6dntWSzv5yg
 
 IP 158.160.49.34
+
+*****ПРОЕКТ ПЕРЕНОСИТСЯ НА ДРУГОЙ ХОСТИНГ*****
